@@ -137,18 +137,7 @@ class Binomial(Distribution):
             list: y values for the pdf plot
             
         """
-    
-        # TODO: Use a bar chart to plot the probability density function from
-        # k = 0 to k = n
-        
-        #   Hint: You'll need to use the pdf() method defined above to calculate the
-        #   density function for every value of k.
-        
-        #   Be sure to label the bar chart with a title, x label and y label
-
-        #   This method should also return the x and y values used to make the chart
-        #   The x and y values should be stored in separate lists
-        
+            
         n = self.n
         x_list = list(range(n+1))
         y_list = [self.pdf(x) for x in x_list]
@@ -159,6 +148,8 @@ class Binomial(Distribution):
         plt.ylabel('Probability')
         
         return x_list, y_list
+    
+    
                 
     def __add__(self, other):
         
@@ -191,7 +182,11 @@ class Binomial(Distribution):
         #   When adding two binomial distributions, the p value remains the same
         #   The new n value is the sum of the n values of the two distributions.
                 
-        pass
+        p = self.p
+        n = self.n + other.n
+                
+        new_binomial = Binomial(p, n)
+        return new_binomial
         
         
     def __repr__(self):
