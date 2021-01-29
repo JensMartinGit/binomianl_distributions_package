@@ -175,8 +175,11 @@ class Binomial(Distribution):
         # 
         #   For example, if you flip a coin n = 60 times, with p = .5,
         #   what's the likelihood that the coin lands on heads 40 out of 60 times?
+        n = self.n
+        p = self.p
+        return math.factorial(n)/(math.factorial(n-k) * math.factorial(k)) * p ** k * (1-p) ** (n-k)
         
-        pass        
+             
 
     def plot_bar_pdf(self):
 
